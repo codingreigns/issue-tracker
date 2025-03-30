@@ -31,11 +31,11 @@ const Navbar = () => {
         <div></div>
       </div>
       <div className="">
-        <ul className="flex items-center gap-2">
+        <ul className="md:flex items-center gap-2 hidden">
           {links.map((link) => (
             <Link
               className={classnames({
-                "text-white bg-zinc-900 ": link.href === currentPath,
+                "text-white bg-[#3e63dd] ": link.href === currentPath,
                 "hover:bg-zinc-100": link.href !== currentPath,
                 " transition-colors duration-100 delay-75 rounded-full px-2":
                   true,
