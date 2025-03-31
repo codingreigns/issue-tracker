@@ -6,6 +6,7 @@ import Navbar from "./_components/Navbar";
 import { Theme } from "@radix-ui/themes";
 import { ToastContainer } from "react-toastify";
 import Providers from "@/Providers";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,18 +29,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Providers>
-          <Theme>
-            <Navbar />
-            <main className="container">{children}</main>
-          </Theme>
-          <ToastContainer position="top-right" autoClose={3000} />
-        </Providers>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Providers>
+            <Theme>
+              <Navbar />
+              <main className="container">{children}</main>
+            </Theme>
+            <ToastContainer position="top-right" autoClose={3000} />
+          </Providers>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
