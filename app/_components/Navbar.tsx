@@ -4,11 +4,14 @@ import Logo from "./Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classnames from "classnames";
+import UserAvatar from "./UserAvatar";
+import DarkMode from "./DarkMode";
+import SearchBar from "./SearchBar";
 
 const links = [
   { label: "Home", href: "/" },
   { label: "Dashboard", href: "admin/dashboard" },
-  { label: "Issues", href: "/issues" },
+  { label: "Issues", href: "/issues/list" },
 ];
 
 const Navbar = () => {
@@ -48,11 +51,14 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-      {/* user */}
-      <div className="m-3 flex">
+      <div className="m-3 flex items-center gap-4">
+        <DarkMode />
         {/* search */}
-        <div>search box</div>
-        user
+        <div>
+          <SearchBar />
+        </div>
+        {/* user */}
+        <UserAvatar />
       </div>
     </nav>
   );

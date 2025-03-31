@@ -7,7 +7,7 @@ const EditIssueBtn = ({ issueId }: { issueId: string }) => {
   return (
     <Button>
       <IoPencilOutline />
-      <Link href={`/issues/${issueId}/edit`}>Edit Issue</Link>
+      <Link href={`/issues/edit/${issueId}`}>Edit Issue</Link>
     </Button>
   );
 };

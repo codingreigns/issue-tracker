@@ -2,7 +2,7 @@ import IssueStatusBadge from "@/app/components/IssueStatusBadge";
 import { Issue } from "@prisma/client";
 import { Table } from "@radix-ui/themes";
 import React from "react";
-import CustomLink from "../components/CustomLink";
+import CustomLink from "../../components/CustomLink";
 
 const IssuesTable = ({ issues }: { issues: Issue[] }) => {
   return (
