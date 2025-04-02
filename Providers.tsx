@@ -1,6 +1,7 @@
 "use client";
 import React, { PropsWithChildren } from "react";
 import { ThemeProvider } from "next-themes";
+import QueryProvider from "./QueryClientProvider";
 
 const Providers = ({ children }: PropsWithChildren) => {
   return (
@@ -11,7 +12,7 @@ const Providers = ({ children }: PropsWithChildren) => {
         enableSystem
         disableTransitionOnChange
       >
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </ThemeProvider>
     </>
   );

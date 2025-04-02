@@ -8,6 +8,25 @@ export const validateIssue = z.object({
     .max(1000),
 });
 
+export const patchIssueSchema = z.object({
+  title: z
+    .string()
+    .min(3, "Title must have atleast 3 character(s)")
+    .max(191)
+    .optional(),
+  description: z
+    .string()
+    .min(3, "Description must have atleast 3 character(s)")
+    .max(1000)
+    .optional(),
+  assignedToUserId: z
+    .string()
+    .min(1, "Assigned To User Id is required")
+    .max(255)
+    .optional()
+    .nullable(),
+});
+
 export const UserSchema = z.object({
   firstName: z
     .string()

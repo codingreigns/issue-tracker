@@ -1,7 +1,7 @@
-// import { currentUser } from "@clerk/nextjs/server";
-// import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/prisma/client";
+import { NextRequest, NextResponse } from "next/server";
 
-// export async function GET(request: NextRequest) {
-//   const user = await currentUser();
-//   return NextResponse.json(user);
-// }
+export async function GET(request: NextRequest) {
+  const user = await prisma.user.findMany({ orderBy: { firstName: "asc" } });
+  return NextResponse.json(user);
+}
