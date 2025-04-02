@@ -3,6 +3,8 @@ import { Flex, Avatar, Button, DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 import SignOutLink from "./SignOutLink";
+import { fetchProfileImage } from "../utils/Actions";
+import { IoPerson } from "react-icons/io5";
 
 type NavLinks = {
   href: string;
@@ -11,17 +13,15 @@ type NavLinks = {
 
 const links: NavLinks[] = [{ href: "/profile", label: "profile" }];
 
-const UserAvatar = () => {
+const UserAvatar = async () => {
+  const profile = await fetchProfileImage();
   return (
     <Flex gap="2">
       <>
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
             <Button variant="ghost">
-              <Avatar
-                src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?&w=256&h=256&q=70&crop=focalpoint&fp-x=0.5&fp-y=0.3&fp-z=1&fit=crop"
-                fallback="A"
-              />
+              <Avatar src={profile?.profileImage} fallback={<IoPerson />} />
             </Button>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-44" align="start" sideOffset={10}>
@@ -40,9 +40,11 @@ const UserAvatar = () => {
             </SignedOut>
             <SignedIn>
               {links.map((link) => (
-                <DropdownMenu.Item key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </DropdownMenu.Item>
+                <Link href={link.href} key={link.label}>
+                  <DropdownMenu.Item key={link.href}>
+                    {link.label}
+                  </DropdownMenu.Item>
+                </Link>
               ))}
               <DropdownMenu.Separator />
               <SignOutLink />

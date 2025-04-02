@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import EditIssueBtn from "./EditIssueBtn";
 import IssueDetailsCard from "./IssueDetailsCard";
 import DeleteIssueBtn from "./DeleteIssueBtn";
+import AssigneeSelect from "./AssigneeSelect";
 
 interface Params {
   params: Promise<{ issueId: string }>;
@@ -22,6 +23,7 @@ const IssueDetailsPage = async ({ params }: Params) => {
       </Box>
       <Box>
         <Flex direction={"column"} gap={"4"}>
+          <AssigneeSelect />
           <EditIssueBtn issueId={issueId} />
           <DeleteIssueBtn issueId={issueId} />
         </Flex>
