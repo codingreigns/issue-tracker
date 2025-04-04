@@ -1,20 +1,63 @@
 import IssueStatusBadge from "@/app/components/IssueStatusBadge";
-import { Issue } from "@prisma/client";
+import { Issue, Status } from "@prisma/client";
 import { Table } from "@radix-ui/themes";
 import React from "react";
 import CustomLink from "../../components/CustomLink";
+import Link from "next/link";
+import { FaArrowUp } from "react-icons/fa";
 
-const IssuesTable = ({ issues }: { issues: Issue[] }) => {
+const IssuesTable = ({
+  issues,
+  status,
+  orderBy,
+  
+}: {
+  issues: Issue[];
+  status?: Status | undefined;
+  orderBy?: string;
+}) => {
   return (
     <Table.Root variant="surface">
       <Table.Header>
         <Table.Row>
-          <Table.ColumnHeaderCell>Issue Title</Table.ColumnHeaderCell>
-          <Table.ColumnHeaderCell className="hidden md:table-cell">
-            Status
+          <Table.ColumnHeaderCell>
+            <Link
+              href={
+                status
+                  ? `/issues/list?status=${status}&orderBy=title`
+                  : "/issues/list?orderBy=title"
+              }
+              className="flex gap-3"
+            >
+              Issue Title
+              {orderBy === "title" ? <FaArrowUp /> : ""}
+            </Link>
           </Table.ColumnHeaderCell>
           <Table.ColumnHeaderCell className="hidden md:table-cell">
-            Created At
+            <Link
+              href={
+                status
+                  ? `/issues/list?status=${status}&orderBy=status`
+                  : "/issues/list?orderBy=status"
+              }
+              className="flex gap-3"
+            >
+              Status
+              {orderBy === "status" ? <FaArrowUp /> : ""}
+            </Link>
+          </Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell className="hidden md:table-cell">
+            <Link
+              href={
+                status
+                  ? `/issues/list?status=${status}&orderBy=createdAt`
+                  : "/issues/list?orderBy=createdAt"
+              }
+              className="flex gap-3"
+            >
+              Created
+              {orderBy === "createdAt" ? <FaArrowUp /> : ""}
+            </Link>
           </Table.ColumnHeaderCell>
         </Table.Row>
       </Table.Header>
