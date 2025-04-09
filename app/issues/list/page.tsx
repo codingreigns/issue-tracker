@@ -3,6 +3,7 @@ import IssuesTable from "./IssuesTable";
 import IssuesActions from "./IssuesActions";
 import { Issue, Status } from "@prisma/client";
 import Pagination from "@/app/components/Pagination";
+import { Suspense } from "react";
 
 interface Params {
   searchParams: Promise<{
@@ -48,11 +49,13 @@ const IssuesPage = async ({ searchParams }: Params) => {
       <div className="mb-5">
         <IssuesTable orderBy={orderBy} issues={issues} status={validStatus} />
       </div>
-      <Pagination
-        pageSize={pageSize}
-        currentPage={currentPage}
-        itemCount={totalIssues}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Pagination
+          pageSize={pageSize}
+          currentPage={currentPage}
+          itemCount={totalIssues}
+        />
+      </Suspense>
     </div>
   );
 };
