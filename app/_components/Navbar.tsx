@@ -1,7 +1,7 @@
 import DarkMode from "./DarkMode";
 import LinksDisplay from "./LinksDisplay";
 import LogoContainer from "./LogoContainer";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
@@ -15,9 +15,7 @@ const Navbar = () => {
       <div className="m-3 flex items-center gap-4">
         <DarkMode />
         {/* search */}
-        <div className="hidden md:block">
-          <SearchBar />
-        </div>
+        <div className="hidden md:block">{/* <SearchBar /> */}</div>
         {/* user */}
         <UserAvatar />
       </div>
