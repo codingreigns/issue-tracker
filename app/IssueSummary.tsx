@@ -17,7 +17,7 @@ const IssueSummary = ({ open, inProgress, closed }: Props) => {
   return (
     <div className="flex flex-col md:flex-row  gap-5">
       {statuses.map((status) => (
-        <Card key={status.value}>
+        <Card key={status.label}>
           <Flex direction={"column"}>
             <CustomLink href={`/issues/list?status=${status.status}`}>
               {status.label}
