@@ -4,7 +4,6 @@ import React from "react";
 
 const DarkMode = () => {
   const { setTheme, theme } = useTheme();
-  console.log(theme);
 
   return (
     <button

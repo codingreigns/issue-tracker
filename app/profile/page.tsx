@@ -6,7 +6,6 @@ import FormContainer from "./_components/FormContainer";
 const ProfilePage = async () => {
   const profile = await fetchUserProfile();
 
-  console.log(profile);
   return (
     <div className="p-10 border border-gray-300 shadow-2xl rounded">
       <div className="flex items-center justify-center">
