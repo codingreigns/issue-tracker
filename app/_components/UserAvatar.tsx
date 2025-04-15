@@ -21,7 +21,11 @@ const UserAvatar = async () => {
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
             <Button variant="ghost">
-              <Avatar src={profile?.profileImage} fallback={<IoPerson />} />
+              <Avatar
+                // className="ml-[1px]"
+                src={profile?.profileImage}
+                fallback={<IoPerson />}
+              />
             </Button>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content className="w-44" align="start" sideOffset={10}>

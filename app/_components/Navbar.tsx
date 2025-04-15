@@ -12,7 +12,7 @@ const Navbar = () => {
     >
       <LogoContainer />
       <LinksDisplay />
-      <div className="m-3 flex items-center gap-4">
+      <div className="m-3 flex items-center md:gap-4 gap-2">
         <DarkMode />
         {/* search */}
         <div className="hidden md:block">{/* <SearchBar /> */}</div>

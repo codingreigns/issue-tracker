@@ -14,7 +14,7 @@ const LinksDisplay = () => {
   const currentPath = usePathname();
 
   return (
-    <ul className="md:flex items-center gap-2 hidden">
+    <ul className="md:flex items-center md:gap-2 text-xs md:text-lg">
       {links.map((link) => (
         <Link
           className={classnames({
