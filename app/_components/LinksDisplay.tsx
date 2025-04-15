@@ -2,12 +2,11 @@
 import classnames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import React from "react";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "Dashboard", href: "admin/dashboard" },
+  // { label: "Dashboard", href: "admin/dashboard" },
   { label: "Issues", href: "/issues/list" },
 ];
 

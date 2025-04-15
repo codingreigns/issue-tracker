@@ -8,7 +8,7 @@ const LogoContainer = () => {
         {/* logo */}
         <Logo />
         <h1 className="font-bold text-sm tracking-wide text-gray-800 mx-2">
-          Bug <span className="text-lg font-black ">Tracer</span>
+          Issue <span className="text-lg font-black ">Tracer</span>
         </h1>
       </div>
     </div>
