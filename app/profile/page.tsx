@@ -1,10 +1,17 @@
-import { TextArea, TextField } from "@radix-ui/themes";
+import { Button, TextArea, TextField } from "@radix-ui/themes";
 import SubmitBtn from "../components/SubmitBtn";
 import { fetchUserProfile, updateProfileAction } from "../utils/Actions";
 import FormContainer from "./_components/FormContainer";
+import Link from "next/link";
 
 const ProfilePage = async () => {
   const profile = await fetchUserProfile();
+  if (!profile)
+    return (
+      <Button>
+        <Link href="/profile/create">Create Profile</Link>
+      </Button>
+    );
 
   return (
     <div className="p-10 border border-gray-300 shadow-2xl rounded">

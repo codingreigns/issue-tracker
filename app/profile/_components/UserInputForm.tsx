@@ -35,7 +35,7 @@ const UserInputForm = ({ defaultValue }: Props) => {
             required
             size="2"
             placeholder="Username"
-            name="userName"
+            name="username"
             defaultValue={defaultValue?.userName}
           />
         </div>

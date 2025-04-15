@@ -53,8 +53,7 @@ export function validateWithZodSchema<T>(
 ): T {
   const results = schema.safeParse(data);
   if (!results.success) {
-    const errors = results.error.errors.map((error) => error.message);
-    throw new Error(errors.join(","));
+    return { message: results.error.errors[0].message } as unknown as T;
   }
   return results.data;
 }
